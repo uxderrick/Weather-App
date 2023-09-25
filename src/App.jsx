@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "./App.css";
 import WeatherCard from "./WeatherCard";
 import Textfield from "./Textfield";
@@ -13,7 +13,7 @@ const App = () => {
 
   const searchLocation = async (location) => {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
+      `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
     );
     // `${API_URL}`
     const data = await response.json();
@@ -23,7 +23,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchLocation("London");
+    searchLocation("Takoradi");
   }, []);
 
   //interface
@@ -31,7 +31,7 @@ const App = () => {
     <>
       <div className="app">
         <h1>Weather App</h1>
-        <div className="container ">
+        <div className="container">
           <div>
             <Textfield></Textfield>
           </div>
