@@ -23,7 +23,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchLocation("Takoradi");
+    searchLocation("Boston");
   }, []);
 
   //interface

@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 
 const WeatherCard = ({ weather }) => {
-  // const Celcius = `${weather.main?.humidity - 32}`;
   // const Icon = `${weather.weather?.}`;
 
   return (
@@ -21,9 +20,10 @@ const WeatherCard = ({ weather }) => {
 
           {/* <Card.Text>{weather.main?.temp > 25 ? "Hot" : "Cold"} </Card.Text> */}
 
-          <Card.Text>{weather.main?.temp} Celsius</Card.Text>
-          <Card.Text>{weather.main?.humidity} Humidity</Card.Text>
-          <Card.Text>{weather.wind?.speed} Wind Speed</Card.Text>
+          <Card.Text>{weather.main?.temp.toFixed()} Celsius</Card.Text>
+          {/* <Card.Text>{weather.weather[0].icon} Main</Card.Text> */}
+          <Card.Text>{weather.main?.humidity.toFixed()} Humidity</Card.Text>
+          <Card.Text>{weather.wind?.speed.toFixed(1)} Wind Speed</Card.Text>
         </Card.Body>
       </Card>
     </div>
