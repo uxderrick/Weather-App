@@ -1,13 +1,12 @@
 import { React, useEffect, useState } from "react";
 import "./App.css";
-import WeatherCard from "./WeatherCard";
-import Textfield from "./Textfield";
+import WeatherInfo from "./WeatherInfo";
 
 const API_URL =
   "api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622";
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [location, setLocation] = useState("");
 
   const [weather, setWeather] = useState([]);
 
@@ -23,23 +22,36 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchLocation("Boston");
+    searchLocation(location);
   }, []);
 
   //interface
   return (
     <>
       <div className="app">
-        <h1>Weather App</h1>
+        <div className="title">WEATHER APP</div>
         <div className="container">
-          <div>
-            <Textfield></Textfield>
-          </div>
-          <div className="p-3"></div>
+          {/* Input field*/}
+          <input
+            type="text"
+            placeholder="Search for a city"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                searchLocation(location);
+                e.preventDefault();
+              }
+            }}
+          ></input>
 
-          <div>
-            <WeatherCard weather={weather}></WeatherCard>
-          </div>
+          {weather.name !== undefined ? (
+            <WeatherInfo weather={weather}></WeatherInfo>
+          ) : (
+            <div className="hit-text">
+              Hit the ↵ Enter key to proceed
+            </div>
+          )}
         </div>
       </div>
     </>
