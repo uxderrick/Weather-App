@@ -10,6 +10,8 @@ const App = () => {
 
   const [weather, setWeather] = useState([]);
 
+  const [desc, setDesc] = useState("");
+
   const searchLocation = async (location) => {
     const response = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
@@ -21,37 +23,43 @@ const App = () => {
     console.log(data);
   };
 
+  // const desc = `${weather.weather ? `${weather.weather[0].main}` : "Clouds"}`;
+
   useEffect(() => {
     searchLocation(location);
-  }, []);
 
-  //interface
+    const bgImage = "Rain";
+
+    setDesc(bgImage);
+  }, [location]);
+
   return (
     <>
-      <div className="app">
-        <div className="title">WEATHER APP</div>
-        <div className="container">
-          {/* Input field*/}
-          <input
-            type="text"
-            placeholder="Search for a city"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                searchLocation(location);
-                e.preventDefault();
-              }
-            }}
-          ></input>
+      <div className={desc}>
+        <div className="app shade">
+          <div className="title">WEATHER APP</div>
+          <div className="container">
+            {/* Input field*/}
+            <input
+              type="text"
+              placeholder="Search for a city"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setLocation("");
+                  searchLocation(location);
+                  e.preventDefault();
+                }
+              }}
+            ></input>
 
-          {weather.name !== undefined ? (
-            <WeatherInfo weather={weather}></WeatherInfo>
-          ) : (
-            <div className="hit-text">
-              Hit the ↵ Enter key to proceed
-            </div>
-          )}
+            {weather.name !== undefined ? (
+              <WeatherInfo weather={weather}></WeatherInfo>
+            ) : (
+              <div className="hit-text">Hit the ↵ Enter key to proceed</div>
+            )}
+          </div>
         </div>
       </div>
     </>

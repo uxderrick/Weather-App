@@ -15,7 +15,7 @@ const WeatherInfo = ({ weather }) => {
         <div className="other-details-row">
           <div className="other-details">
             <p className="other-details-value">
-              {weather.main?.humidity.toFixed()}%
+              {weather.main?.humidity.toFixed(1)}%
             </p>
             <p className="other-details-label">Humidity</p>
           </div>
@@ -25,13 +25,9 @@ const WeatherInfo = ({ weather }) => {
             </p>
             <p className="other-details-label">Wind Speed</p>
           </div>
-          <div className="other-details">
-            <p className="other-details-value">
-              {weather.main?.humidity.toFixed(1)}%
-            </p>
-            <p className="other-details-label">Humidity</p>
-          </div>
+
           {/* <p>{weather.weather ? <p>{weather.weather[0].main}</p> : null}</p> */}
+          {/* {weather.weather ? {weather.weather[0].main}: null} */}
         </div>
       </div>
     </>

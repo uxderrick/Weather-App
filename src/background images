@@ -1,0 +1,25 @@
+  const clouds =
+    "https://images.unsplash.com/photo-1601352209555-489a72668fda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80";
+
+  const thunderstorm =
+    "https://images.unsplash.com/photo-1500674425229-f692875b0ab7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80";
+
+  const rain =
+    "https://images.unsplash.com/photo-1530933760-343e767695cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80";
+
+  const snow =
+    "https://images.unsplash.com/photo-1505322491781-b5b70b3f370c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80";
+
+  const atmosphere =
+    "https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80";
+
+  const clear =
+    "https://images.unsplash.com/photo-1617142020713-52989920e411?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80";
+
+  const drizzle =
+    "https://e1.pxfuel.com/desktop-wallpaper/63/582/desktop-wallpaper-weather-drizzling-drizzle-drizzle.jpg";
+
+  const bgImage = {
+    backgroundImage: `url(${clear})`,
+  };
+  
