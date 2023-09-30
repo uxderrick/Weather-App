@@ -1,6 +1,6 @@
 # Weather App
 
-![Weather App Screenshot](screenshot.png)
+![Weather App Screenshot](https://drive.google.com/file/d/1TxHMI8GY-Fl6x4yWv-vpwmvwMga8hN9B/view?usp=drivesdk)
 
 ## Overview
 
