@@ -1,6 +1,7 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useCallback } from "react";
 import "./App.css";
 import WeatherInfo from "./WeatherInfo";
+import { DebounceInput } from "react-debounce-input";
 
 const API_URL =
   "api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622";
@@ -21,14 +22,13 @@ const App = () => {
 
     setWeather(data);
     console.log(data);
+    console.log(data.message);
   };
-
-  // const desc = `${weather.weather ? `${weather.weather[0].main}` : "Clouds"}`;
 
   useEffect(() => {
     searchLocation(location);
 
-    const bgImage = "Rain";
+    const bgImage = "Default";
 
     setDesc(bgImage);
   }, [location]);
@@ -40,7 +40,7 @@ const App = () => {
           <div className="title">WEATHER APP</div>
           <div className="container">
             {/* Input field*/}
-            <input
+            <DebounceInput
               type="text"
               placeholder="Search for a city"
               value={location}
@@ -52,13 +52,19 @@ const App = () => {
                   e.preventDefault();
                 }
               }}
-            ></input>
+              debounceTimeout={500}
+              minLength={2}
+            ></DebounceInput>
 
             {weather.name !== undefined ? (
               <WeatherInfo weather={weather}></WeatherInfo>
             ) : (
-              <div className="hit-text">Hit the ↵ Enter key to proceed</div>
+              <div className="hint-text">Hit the ↵ Enter key to proceed</div>
             )}
+
+            {weather.cod == 404 ? (
+              <div className="celsius">{`"${location}" does not exist`}</div>
+            ) : null}
           </div>
         </div>
       </div>

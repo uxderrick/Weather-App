@@ -26,6 +26,8 @@ const WeatherInfo = ({ weather }) => {
             <p className="other-details-label">Wind Speed</p>
           </div>
 
+          {/* <p className="other-details-value">{weather.message}</p> */}
+
           {/* <p>{weather.weather ? <p>{weather.weather[0].main}</p> : null}</p> */}
           {/* {weather.weather ? {weather.weather[0].main}: null} */}
         </div>
