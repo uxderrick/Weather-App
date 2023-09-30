@@ -22,7 +22,6 @@ const App = () => {
 
     setWeather(data);
     console.log(data);
-    console.log(data.message);
   };
 
   useEffect(() => {
@@ -63,7 +62,7 @@ const App = () => {
             )}
 
             {weather.cod == 404 ? (
-              <div className="celsius">{`"${location}" does not exist`}</div>
+              <div className="error-msg">{`"${location}" does not exist`}</div>
             ) : null}
           </div>
         </div>

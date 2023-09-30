@@ -5,6 +5,10 @@ const WeatherInfo = ({ weather }) => {
     <>
       <div className="weather-info">
         <div className="celsius">
+          <img
+            className="icon"
+            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+          ></img>
           {weather.name}, {weather.sys?.country}
         </div>
 
@@ -25,11 +29,6 @@ const WeatherInfo = ({ weather }) => {
             </p>
             <p className="other-details-label">Wind Speed</p>
           </div>
-
-          {/* <p className="other-details-value">{weather.message}</p> */}
-
-          {/* <p>{weather.weather ? <p>{weather.weather[0].main}</p> : null}</p> */}
-          {/* {weather.weather ? {weather.weather[0].main}: null} */}
         </div>
       </div>
     </>
