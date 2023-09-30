@@ -1,6 +1,7 @@
 # Weather App
 
-![Weather App Screenshot](https://ibb.co/hXx1KGX)
+
+
 
 ## Overview
 
