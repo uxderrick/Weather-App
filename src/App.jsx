@@ -11,8 +11,6 @@ const App = () => {
 
   const [weather, setWeather] = useState([]);
 
-  const [desc, setDesc] = useState("");
-
   const searchLocation = async (location) => {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
@@ -50,13 +48,11 @@ const App = () => {
               debounceTimeout={500}
               minLength={2}
             ></DebounceInput>
-
             {weather.name !== undefined ? (
               <WeatherInfo weather={weather}></WeatherInfo>
             ) : (
               <div className="hint-text">Hit the ↵ Enter key to proceed</div>
             )}
-
             {weather.cod == 404 ? (
               <div className="error-msg">{`"${location}" does not exist`}</div>
             ) : null}
