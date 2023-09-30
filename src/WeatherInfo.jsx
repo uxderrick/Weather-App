@@ -30,6 +30,17 @@ const WeatherInfo = ({ weather }) => {
             <p className="other-details-label">Wind Speed</p>
           </div>
         </div>
+        <div className="other-details-row">
+          <div className="other-details2">
+            <p className="other-details-value">
+              {weather.weather[0].description.charAt(0).toUpperCase() +
+                weather.weather[0].description.slice(1).toLowerCase()}
+            </p>
+            <p className="other-details-label">Weather Description</p>
+          </div>
+
+          {/* <p>{weather.weather[0].main}</p> */}
+        </div>
       </div>
     </>
   );

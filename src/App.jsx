@@ -26,15 +26,11 @@ const App = () => {
 
   useEffect(() => {
     searchLocation(location);
-
-    const bgImage = "Default";
-
-    setDesc(bgImage);
   }, [location]);
 
   return (
     <>
-      <div className={desc}>
+      <div className={weather.weather ? weather.weather[0].main : "Default"}>
         <div className="app shade">
           <div className="title">WEATHER APP</div>
           <div className="container">

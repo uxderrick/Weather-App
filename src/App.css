@@ -113,7 +113,7 @@ input[type="text"]:focus {
 }
 
 .celsius {
-  padding-top: 32px;
+  /* padding-top: 32px; */
   font-size: 32px;
   font-weight: bolder;
   color: white;
@@ -126,6 +126,8 @@ input[type="text"]:focus {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .error-msg {
@@ -168,6 +170,20 @@ input[type="text"]:focus {
   padding-right: 24px;
 }
 
+.other-details2 {
+  height: 120px;
+  width: 300px;
+  background-color: rgba(67, 67, 67, 0.348);
+  border-radius: 24px;
+  border: 2px solid rgba(245, 222, 179, 0.515);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 .other-details-value {
   padding-bottom: 12px;
   font-size: 28px;
@@ -198,7 +214,9 @@ input[type="text"]:focus {
 .other-details-row {
   display: flex;
   gap: 24px;
+  padding-bottom: 24px;
   /* flex-wrap: wrap; */
+  /* justify-content: center; */
 }
 
 .hint-text {
@@ -216,7 +234,7 @@ input[type="text"]:focus {
 }
 
 .Clouds {
-  background-image: url("https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3274&q=80");
+  background-image: url("https://img.freepik.com/free-photo/sky-clouds-cinematic-clouds-wallpaper-4_1562-741.jpg");
   background-position: top;
   background-size: cover;
   padding: 2rem;
@@ -263,8 +281,18 @@ input[type="text"]:focus {
   height: 100vh;
 }
 
-.Atmosphere {
-  background-image: url("https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80");
+.Atmosphere,
+.Mist,
+.Smoke,
+.Haze,
+.Dust,
+.Fog,
+.Sand,
+.Dust,
+.Ash,
+.Squall,
+.Tornado {
+  background-image: url("https://ncas.ac.uk/app/uploads/2020/05/Long-Term-Changes-Clouds-Over-Fields-1280px.jpg");
   background-position: top;
   background-size: cover;
   padding: 2rem;
