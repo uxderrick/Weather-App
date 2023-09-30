@@ -45,13 +45,13 @@ const App = () => {
               placeholder="Search for a city"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  setLocation("");
-                  searchLocation(location);
-                  e.preventDefault();
-                }
-              }}
+              // onKeyDown={(e) => {
+              //   if (e.key === "Enter") {
+              //     setLocation("");
+              //     searchLocation(location);
+              //     e.preventDefault();
+              //   }
+              // }}
               debounceTimeout={500}
               minLength={2}
             ></DebounceInput>
