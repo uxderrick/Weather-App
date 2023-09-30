@@ -1,6 +1,6 @@
 # Weather App
 
-
+![Weather App Screenshot](https://github.com/uxderrick/Weather-App/blob/fe41e55aec6fd9f0143b80a8e86a2034f90f27f6/src/assets/thumbnail.png)
 
 
 ## Overview
