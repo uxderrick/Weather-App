@@ -57,7 +57,7 @@ const App = () => {
                   e.preventDefault();
                 }
               }}
-              debounceTimeout={500}
+              debounceTimeout={800}
               minLength={2}
             ></DebounceInput>
             {weather.name !== undefined ? (
