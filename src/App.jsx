@@ -15,7 +15,7 @@ const App = () => {
 
   const searchLocation = async (location) => {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
     );
     // `${API_URL}`
     const data = await response.json();
