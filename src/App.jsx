@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useCallback } from "react";
+import { React, useEffect, useState } from "react";
 import "./App.css";
 import WeatherInfo from "./WeatherInfo";
 import { DebounceInput } from "react-debounce-input";
@@ -12,14 +12,27 @@ const App = () => {
   const [weather, setWeather] = useState([]);
 
   const searchLocation = async (location) => {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
-    );
-    // `${API_URL}`
-    const data = await response.json();
+    // Check if the weather data for this location is in localStorage
+    const cachedData = localStorage.getItem(location);
 
-    setWeather(data);
-    console.log(data);
+    if (cachedData) {
+      // If cached data exists, parse it and setWeather
+      const parsedData = JSON.parse(cachedData);
+      setWeather(parsedData);
+    } else {
+      // If cached data doesn't exist, make an API call to fetch the data
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
+      );
+      const data = await response.json();
+
+      // Cache the data in localStorage
+      localStorage.setItem(location, JSON.stringify(data));
+
+      // Set the fetched data in the weather state
+      setWeather(data);
+      console.log(data);
+    }
   };
 
   useEffect(() => {
@@ -40,7 +53,6 @@ const App = () => {
               onChange={(e) => setLocation(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  // setLocation("");
                   searchLocation(location);
                   e.preventDefault();
                 }
