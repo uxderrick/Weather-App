@@ -19,6 +19,7 @@ const App = () => {
     if (cachedData) {
       // If cached data exists, parse it and setWeather
       const parsedData = JSON.parse(cachedData);
+      // console.log(cachedData);
       setWeather(parsedData);
     } else {
       // If cached data doesn't exist, make an API call to fetch the data
