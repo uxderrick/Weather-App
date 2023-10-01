@@ -63,10 +63,22 @@ input {
   border-radius: 300px;
   background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.239);
-  color: white;
+  color: wheat;
   width: 100%;
   max-width: 600px;
   font-size: 240px;
+}
+
+.input-container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+i {
+  position: relative;
 }
 
 ::placeholder {
