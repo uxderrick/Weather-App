@@ -3,6 +3,7 @@ import "./App.css";
 import WeatherInfo from "./WeatherInfo";
 import { DebounceInput } from "react-debounce-input";
 import DateTimeDisplay from "./DateDisplay";
+import "font-awesome/css/font-awesome.min.css";
 
 const API_URL =
   "api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622";
@@ -16,8 +17,6 @@ const App = () => {
     // Check if the weather data for this location is in localStorage
     const cachedData = localStorage.getItem(location);
 
-    //localStorage.getItem(location)
-    //weather.cod == 200
     if (cachedData) {
       // If cached data exists, parse it and setWeather
       const parsedData = JSON.parse(cachedData);
@@ -31,15 +30,14 @@ const App = () => {
       const data = await response.json();
 
       // Cache the data in localStorage
-      localStorage.setItem(
-        weather?.cod === 200 ? location : null,
-        JSON.stringify(data)
-      );
+
+      if (weather?.cod === 200) {
+        localStorage.setItem(location, JSON.stringify(data));
+      }
 
       // Set the fetched data in the weather state
       setWeather(data);
-      console.log(data);
-      console.log(weather.cod);
+      // console.log(data);
     }
   };
 
@@ -53,21 +51,33 @@ const App = () => {
         <div className="app shade">
           <div className="title">WEATHER APP</div>
           <div className="container">
-            {/* Input field*/}
-            <DebounceInput
-              type="text"
-              placeholder="Search for a city"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  searchLocation(location);
-                  e.preventDefault();
-                }
-              }}
-              debounceTimeout={800}
-              minLength={2}
-            ></DebounceInput>
+            <div className="input-container">
+              {/* Input field*/}
+              <DebounceInput
+                type="text"
+                placeholder="Search for a city"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    searchLocation(location);
+                    e.preventDefault();
+                    // setLocation("");
+                    e.target.blur();
+                  }
+                }}
+                debounceTimeout={800}
+                minLength={2}
+              ></DebounceInput>
+
+              {/* {location ? (
+                <i
+                  className="fa fa-times-circle close-icon"
+                  onClick={() => setLocation("")}
+                  style={{ fontSize: "40px", color: "lightgrey" }}
+                />
+              ) : null} */}
+            </div>
 
             {weather.name !== undefined ? (
               <WeatherInfo weather={weather}></WeatherInfo>
