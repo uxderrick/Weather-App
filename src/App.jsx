@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import "./App.css";
 import WeatherInfo from "./WeatherInfo";
 import { DebounceInput } from "react-debounce-input";
+import DateTimeDisplay from "./DateDisplay";
 
 const API_URL =
   "api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622";
@@ -63,7 +64,10 @@ const App = () => {
             {weather.name !== undefined ? (
               <WeatherInfo weather={weather}></WeatherInfo>
             ) : (
-              <div className="hint-text">Hit the ↵ Enter key to proceed</div>
+              <div>
+                <div className="hint-text">Hit the ↵ Enter key to proceed</div>
+                <DateTimeDisplay></DateTimeDisplay>
+              </div>
             )}
             {weather.cod == 404 ? (
               <div className="error-msg">{`"${location}" does not exist`}</div>
