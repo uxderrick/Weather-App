@@ -62,21 +62,21 @@ const App = () => {
                   if (e.key === "Enter") {
                     searchLocation(location);
                     e.preventDefault();
+                    // setLocation("");
+                    e.target.blur();
                   }
                 }}
                 debounceTimeout={800}
                 minLength={2}
               ></DebounceInput>
 
-              {location ? (
+              {/* {location ? (
                 <i
                   className="fa fa-times-circle close-icon"
                   onClick={() => setLocation("")}
-                  style={{ fontSize: "40px", color: "wheat" }}
+                  style={{ fontSize: "40px", color: "lightgrey" }}
                 />
-              ) : null}
-
-              {/* {location && <a onClick={() => setLocation("")}>Clear</a>} */}
+              ) : null} */}
             </div>
 
             {weather.name !== undefined ? (
