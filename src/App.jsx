@@ -16,6 +16,8 @@ const App = () => {
     // Check if the weather data for this location is in localStorage
     const cachedData = localStorage.getItem(location);
 
+    //localStorage.getItem(location)
+    //weather.cod == 200
     if (cachedData) {
       // If cached data exists, parse it and setWeather
       const parsedData = JSON.parse(cachedData);
@@ -29,17 +31,21 @@ const App = () => {
       const data = await response.json();
 
       // Cache the data in localStorage
-      localStorage.setItem(location, JSON.stringify(data));
+      localStorage.setItem(
+        weather?.cod === 200 ? location : null,
+        JSON.stringify(data)
+      );
 
       // Set the fetched data in the weather state
       setWeather(data);
       console.log(data);
+      console.log(weather.cod);
     }
   };
 
   useEffect(() => {
     searchLocation(location);
-  }, [location]);
+  }, [location, weather.cod]);
 
   return (
     <>
@@ -62,6 +68,7 @@ const App = () => {
               debounceTimeout={800}
               minLength={2}
             ></DebounceInput>
+
             {weather.name !== undefined ? (
               <WeatherInfo weather={weather}></WeatherInfo>
             ) : (
