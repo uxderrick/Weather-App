@@ -40,7 +40,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchLocation(location.trim());
+    searchLocation(location.trim().toLowerCase());
   }, [location, weather.cod]);
 
   return (
