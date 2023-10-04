@@ -4,9 +4,7 @@ import WeatherInfo from "./WeatherInfo";
 import { DebounceInput } from "react-debounce-input";
 import DateTimeDisplay from "./DateDisplay";
 import "font-awesome/css/font-awesome.min.css";
-
-const API_URL =
-  "api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622";
+import { trim } from "lodash";
 
 const App = () => {
   const [location, setLocation] = useState("");
@@ -42,7 +40,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchLocation(location);
+    searchLocation(location.trim());
   }, [location, weather.cod]);
 
   return (
@@ -68,6 +66,7 @@ const App = () => {
                 }}
                 debounceTimeout={800}
                 minLength={2}
+                autoComplete="on"
               ></DebounceInput>
 
               {/* {location ? (
