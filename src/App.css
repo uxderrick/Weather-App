@@ -240,7 +240,7 @@ input[type="text"]:focus {
 
 .other-details2 {
   height: 120px;
-  width: 300px;
+  /* width: 300px; */
   background-color: rgba(67, 67, 67, 0.348);
   border-radius: 24px;
   border: 2px solid rgba(245, 222, 179, 0.515);
@@ -249,6 +249,7 @@ input[type="text"]:focus {
   align-items: center;
   flex-direction: column;
   padding-left: 24px;
+  width: 100%;
   padding-right: 24px;
 }
 
@@ -283,6 +284,7 @@ input[type="text"]:focus {
   display: flex;
   gap: 16px;
   padding-bottom: 16px;
+  width: 100%;
   /* flex-wrap: wrap; */
   /* justify-content: center; */
 }
