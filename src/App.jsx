@@ -12,31 +12,14 @@ const App = () => {
   const [weather, setWeather] = useState([]);
 
   const searchLocation = async (location) => {
-    // Check if the weather data for this location is in localStorage
-    const cachedData = localStorage.getItem(location);
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
+    );
 
-    if (cachedData) {
-      // If cached data exists, parse it and setWeather
-      const parsedData = JSON.parse(cachedData);
-      // console.log(cachedData);
-      setWeather(parsedData);
-    } else {
-      // If cached data doesn't exist, make an API call to fetch the data
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&APPID=986e54ddb6dbdf1b9c5dc2d87eac3622`
-      );
-      const data = await response.json();
+    const data = await response.json();
 
-      // Cache the data in localStorage
-
-      if (weather?.cod === 200) {
-        localStorage.setItem(location, JSON.stringify(data));
-      }
-
-      // Set the fetched data in the weather state
-      setWeather(data);
-      // console.log(data);
-    }
+    // Set the fetched data in the weather state
+    setWeather(data);
   };
 
   useEffect(() => {
